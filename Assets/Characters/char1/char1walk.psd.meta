@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: d1f6dd4cfe92b33419f1d542acaaf530
+timeCreated: 1497266846
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: char1walk_0
+    21300002: char1walk_1
+    21300004: char1walk_2
+    21300006: char1walk_3
+    21300008: char1walk_4
+    21300010: char1walk_5
+    21300012: char1walk_6
+    21300014: char1walk_7
+    21300016: char1walk_8
+    21300018: char1walk_9
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: char1walk_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
+        width: 16
+        height: 22
+      alignment: 9
+      pivot: {x: 0.27193463, y: 0.4999999}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char1walk_1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 2
+        width: 15
+        height: 22
+      alignment: 9
+      pivot: {x: 0.2741067, y: 0.5059237}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char1walk_2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 2
+        width: 15
+        height: 22
+      alignment: 9
+      pivot: {x: 0.2741066, y: 0.4999999}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char1walk_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2
+        width: 17
+        height: 22
+      alignment: 9
+      pivot: {x: 0.36967692, y: 0.5059237}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char1walk_4
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 2
+        width: 18
+        height: 22
+      alignment: 9
+      pivot: {x: 0.41311774, y: 0.4999999}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char1walk_5
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 2
+        width: 16
+        height: 22
+      alignment: 9
+      pivot: {x: 0.3533864, y: 0.48815238}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char1walk_6
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 2
+        width: 15
+        height: 22
+      alignment: 9
+      pivot: {x: 0.28279418, y: 0.5059237}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char1walk_7
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 2
+        width: 16
+        height: 22
+      alignment: 9
+      pivot: {x: 0.32080555, y: 0.4999999}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char1walk_8
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 2
+        width: 17
+        height: 22
+      alignment: 9
+      pivot: {x: 0.36967647, y: 0.49407613}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: char1walk_9
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 2
+        width: 16
+        height: 22
+      alignment: 9
+      pivot: {x: 0.31266022, y: 0.4999999}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
