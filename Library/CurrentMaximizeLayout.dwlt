@@ -20,10 +20,10 @@ MonoBehaviour:
     y: 30
     width: 1846
     height: 987
-  m_MinSize: {x: 785, y: 342}
-  m_MaxSize: {x: 16010, y: 8042}
+  m_MinSize: {x: 785, y: 492}
+  m_MaxSize: {x: 16010, y: 14042}
   vertical: 0
-  controlID: 3194
+  controlID: 2374
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -80,18 +80,18 @@ MonoBehaviour:
       y: 17
       width: 531
       height: 562
-    m_Scale: {x: 1.4685333, y: 1.4685333}
-    m_Translation: {x: 294.78333, y: 310.26172}
+    m_Scale: {x: 1.7535052, y: 1.7535051}
+    m_Translation: {x: 309.33008, y: 309.5363}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -200.73315
-      y: -211.2732
-      width: 361.58527
-      height: 382.69476
+      x: -176.40671
+      y: -176.5243
+      width: 302.82202
+      height: 320.50092
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
@@ -120,10 +120,10 @@ MonoBehaviour:
     y: 0
     width: 1330
     height: 987
-  m_MinSize: {x: 508, y: 342}
-  m_MaxSize: {x: 12008, y: 8042}
+  m_MinSize: {x: 508, y: 492}
+  m_MaxSize: {x: 12008, y: 14042}
   vertical: 1
-  controlID: 3195
+  controlID: 2347
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 508, y: 221}
   m_MaxSize: {x: 12008, y: 4021}
   vertical: 0
-  controlID: 3196
+  controlID: 2348
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -175,7 +175,7 @@ MonoBehaviour:
   - {fileID: 7}
   - {fileID: 2}
   m_Selected: 2
-  m_LastSelected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -228,7 +228,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 74
     y: 92
-    width: 805
+    width: 531
     height: 579
   m_ViewPositions:
     m_KeySerializationHelper:
@@ -236,7 +236,7 @@ MonoBehaviour:
     - {fileID: 1107472763697357518, guid: 537ad269e988fd84a8f436fe21761737, type: 2}
     - {fileID: 1107541974499615668, guid: daf4fe6fe0bf4a840937d74aed1869a8, type: 2}
     m_ValueSerializationHelper:
-    - {x: 413, y: 213.80005}
+    - {x: 522.60004, y: 453.80005}
     - {x: 331.40002, y: 129.80005}
     - {x: 463.00003, y: 327.80005}
   m_PreviewAnimator: {fileID: 0}
@@ -315,9 +315,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: -2.687}
+    m_Target: {x: -0.16598377, y: 0.0743689, z: -2.4831543}
     speed: 2
-    m_Value: {x: 0, y: 0, z: -2.687}
+    m_Value: {x: -0.16598377, y: 0.0743689, z: -2.4831543}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -344,9 +344,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 22
+    m_Target: 1.6055882
     speed: 2
-    m_Value: 22
+    m_Value: 1.6055882
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -436,9 +436,9 @@ MonoBehaviour:
     height: 579
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7c2d0000
-    m_LastClickedID: 11644
-    m_ExpandedIDs: e4fbffff00000000b02d0000
+    m_SelectedIDs: 14320000
+    m_LastClickedID: 12820
+    m_ExpandedIDs: 36bbffff10c0ffffeaf2ffff6cf5ffffb0f8ffff3ef9ffff000000002a320000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -479,14 +479,14 @@ MonoBehaviour:
     y: 600
     width: 1330
     height: 387
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 15}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
   - {fileID: 15}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -524,18 +524,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\^SirCoffeeLot\Documents\Project Pudding
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a02c0000
-    m_LastClickedID: 11424
+    m_SelectedIDs: 622d0000
+    m_LastClickedID: 11618
     m_ExpandedIDs: 00000000d2240000ac2c0000222d0000982e00009a2e000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -589,8 +589,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 14320000
+    m_LastClickedInstanceID: 12820
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000342800009a250000e82f0000fe2f0000ea240000e82c0000c62d0000b62c0000
     m_RenameOverlay:
@@ -697,7 +697,7 @@ MonoBehaviour:
     y: 92
     width: 514
     height: 966
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 2061.955}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 160
