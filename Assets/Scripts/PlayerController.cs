@@ -45,35 +45,8 @@ public class PlayerController : MonoBehaviour
     {
          
         attackTrigger.enabled = false;
-        if (Input.GetButton("Up"))//CHANGE TO BOUND MOVEMENT KEY
-        {
-            transform.Translate(Vector3.up * speed * Time.deltaTime, Space.World);
-            moving = true;
-        }
-        if (Input.GetButton("Left"))//CHANGE TO BOUND MOVEMENT KEY
-        {
-            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
-            moving = true;
-        }
-        if (Input.GetButton("Down"))//CHANGE TO BOUND MOVEMENT KEY
-        {
-            transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
-            moving = true;
-        }
-        if (Input.GetButton("Right")) //CHANGE TO BOUND MOVEMENT KEY
-        {
-            transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
-            moving = true;
-        }
 
-        if (Input.GetButton("Fire1") && cooldown >= attackCooldown)
-        {
-            attackTrigger.enabled = true;
-            cooldown = 0.0f;
-            anim.SetTrigger("attacking");
-        }
-
-        if(Input.GetButtonDown("Dodge") && player.dodges > 0)
+        if (Input.GetButton("Dodge") && player.dodges > 0)
         {
             if (Input.GetButton("Up") && !Input.GetButton("Down") && !Input.GetButton("Left") && !Input.GetButton("Right")) //UP
                 player.dodge(1);
@@ -89,10 +62,49 @@ public class PlayerController : MonoBehaviour
             //dodges--; //ADD LIMITED DODGES
         }
 
-        if (Input.GetKey(KeyCode.D) != true && Input.GetKey(KeyCode.A) != true && Input.GetKey(KeyCode.S) != true && Input.GetKey(KeyCode.W) != true)
-            moving = false;
+        if(!player.isDodging)
+        { 
+            if (Input.GetButton("Up"))//CHANGE TO BOUND MOVEMENT KEY
+            {
+                transform.Translate(Vector3.up * speed * Time.deltaTime, Space.World);
+                moving = true;
+            }
+            if (Input.GetButton("Left"))//CHANGE TO BOUND MOVEMENT KEY
+            {
+                transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
+                moving = true;
+            }
+            if (Input.GetButton("Down"))//CHANGE TO BOUND MOVEMENT KEY
+            {
+                transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
+                moving = true;
+            }
+            if (Input.GetButton("Right")) //CHANGE TO BOUND MOVEMENT KEY
+            {
+                transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
+                moving = true;
+            }
 
-        anim.SetBool("walking", moving);
+            if (Input.GetButton("Fire1") && cooldown >= attackCooldown) //meelee
+            {
+                attackTrigger.enabled = true;
+                cooldown = 0.0f;
+                anim.SetTrigger("attacking");
+            }
+            if(Input.GetButton("Fire2") && cooldown >= attackCooldown) //gunfire
+            {
+                Debug.Log("Clicked Fire gun");
+
+                player.FireGun();
+                cooldown = 0.0f;
+            }
+
+
+            if (Input.GetKey(KeyCode.D) != true && Input.GetKey(KeyCode.A) != true && Input.GetKey(KeyCode.S) != true && Input.GetKey(KeyCode.W) != true)
+                moving = false;
+
+            anim.SetBool("walking", moving);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

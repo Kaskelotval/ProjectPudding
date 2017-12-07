@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public Vector3 dodgeTarget;
     Vector2 direction;
     Rigidbody2D RBody2D;
+    GameObject[] enemies;
 
     //Start overrides the Start function of MovingObject
     void Start()
@@ -29,6 +30,8 @@ public class Player : MonoBehaviour
         //Get the current food point total stored in GameManager.instance between levels.
         hp = GameManager.instance.playerHP;
         dodges = GameManager.instance.playerDodgesMax;
+
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         Debug.Log("HP on load: " + hp);
         Debug.Log("Dodges on load: " + dodges);
         ObstacleLayer = LayerMask.GetMask("Default");
@@ -112,6 +115,14 @@ public class Player : MonoBehaviour
         ClearVelocity();
         
     }
+    public void FireGun()
+    {
+        //Animation
+        //play sound
+        //chech hits
+        foreach(GameObject enemies in enemies)
+            enemies.GetComponent<Enemy>().PlayerDetectSound();
+    }
 
     private void onDodgeFinished()
     {
@@ -134,8 +145,12 @@ public class Player : MonoBehaviour
 
     public void takeDamage(int dam)
     {
-        hp -= dam; //player takes damage 
-        checkIfDead(); //Is player dead?
+        if(!isDodging)
+        {
+            hp -= dam; //player takes damage 
+            checkIfDead(); //Is player dead?
+        }
+
     }
 
     private void checkIfDead()
