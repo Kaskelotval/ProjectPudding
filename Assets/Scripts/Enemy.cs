@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     CircleCollider2D attackCollider;
     public Vector3 playerLastPos;
     RaycastHit2D hit;
-    public float huntingSpeed = 3.5f;
+    public float huntingSpeed = 1.1f;
     float speed = 1.0f;
     int layerMask = 1 << 8;
     float initialSpeed;
@@ -29,6 +29,10 @@ public class Enemy : MonoBehaviour
     private float attackCooldown = 2.0f;
     private float cooldown;
 
+    //pathfinding
+    Vector3[] path;
+    int targetIndex;
+
     void Start()
     {
         cooldown = attackCooldown;
@@ -37,10 +41,48 @@ public class Enemy : MonoBehaviour
         attackCollider = this.GetComponent<CircleCollider2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         anim = this.GetComponent<Animator>();
-        playerLastPos = this.transform.position;
-
+        playerLastPos = player.transform.position;
         rd2d = this.GetComponent<Rigidbody2D>();
         layerMask = ~layerMask;
+    }
+
+
+    public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
+    {
+        if(pathSuccessful)
+        {
+            Debug.Log("Reached WP");
+            path = newPath;
+            StopCoroutine("FollowPath");
+            StartCoroutine("FollowPath");
+        }
+    }
+
+    IEnumerator FollowPath()
+    {
+        Vector3 currentWaypoint = path[0];
+        targetIndex = 0;
+        while(true)
+        {
+            if(Vector3.Distance(transform.position,currentWaypoint)<0.1)
+            {
+                targetIndex++;
+                if(targetIndex >= path.Length)
+                {
+                    Debug.Log("At final WP");
+                    goingToLastLoc = false;
+                    pursuingPlayer = false;
+                    roaming = true;
+                    playerDetect();
+                    yield break;
+                }
+                currentWaypoint = path[targetIndex];
+                rd2d.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((currentWaypoint.y - transform.position.y), (currentWaypoint.x - transform.position.x)) * Mathf.Rad2Deg);
+
+            }
+            transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, huntingSpeed*Time.deltaTime);
+            yield return null;
+        }
     }
 
     void Update()
@@ -51,9 +93,9 @@ public class Enemy : MonoBehaviour
                 cooldown = attackCooldown;
             else
                 cooldown += Time.deltaTime;
+            playerDetect();
 
             movement();
-            playerDetect();
         }
         else
         {
@@ -101,13 +143,15 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-
-        if(pursuingPlayer == true)
+        else if(pursuingPlayer)
         {
             //Debug.Log("hunting");
+            Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
             speed = huntingSpeed;
             rd2d.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((playerLastPos.y - transform.position.y), (playerLastPos.x - transform.position.x)) * Mathf.Rad2Deg);
-            if (hit2.collider != null)
+            PathRequestManager.RequestPath(transform.position, playerLastPos, OnPathFound);
+
+            /*if (hit2.collider != null)
             {
                 if (hit2.collider.gameObject.tag == "Wall")
                 {
@@ -119,18 +163,21 @@ public class Enemy : MonoBehaviour
                     else
                         transform.Rotate(0, 0, -90);
                 }
-            }
+            }/*
             /*if (hit.collider.gameObject.tag == "Player")
             {
             }*/
         }
-
-        if(goingToLastLoc)
+        else if(goingToLastLoc)
         {
-            Debug.Log("ENEMY: " + "Going to check player last location");
-            speed = huntingSpeed;
+            //Debug.Log("ENEMY: " + "Going to check player last location");
+            //speed = huntingSpeed;
+            //rd2d.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((playerLastPos.y - transform.position.y), (playerLastPos.x - transform.position.x)) * Mathf.Rad2Deg);
             rd2d.transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((playerLastPos.y - transform.position.y), (playerLastPos.x - transform.position.x)) * Mathf.Rad2Deg);
-            if(Vector3.Distance(this.transform.position,playerLastPos)<0.3f)
+
+            PathRequestManager.RequestPath(transform.position, playerLastPos, OnPathFound);
+
+            if (Vector3.Distance(this.transform.position,playerLastPos)<0.3f)
             {
                 roaming = true;
                 goingToLastLoc = false;
@@ -144,7 +191,6 @@ public class Enemy : MonoBehaviour
         {
             if (pursuingPlayer == true)
             {
-                Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red);
                 if (hit.collider.gameObject.tag == "Wall") //If player goes behind a wall
                 {
                     Debug.Log("Lost sight of player");
@@ -234,5 +280,24 @@ public class Enemy : MonoBehaviour
             dead = true;  
         }
 
+    }
+
+    public void OnDrawGizmos()
+    {
+        if(path !=null)
+        {
+            for(int i = targetIndex; i<path.Length; i++)
+            {
+                Gizmos.color = Color.black;
+                Gizmos.DrawCube(path[i], new Vector3(0.1f,0.1f,0.1f));
+
+                if (i == targetIndex)
+                {
+                    Gizmos.DrawLine(transform.position, path[i]);
+                }
+                else
+                    Gizmos.DrawLine(path[i - 1], path[i]);
+            }
+        }
     }
 }
