@@ -30,7 +30,7 @@ public class Pathfinding : MonoBehaviour {
         Vector3[] waypoints = new Vector3[0];
         bool pathSuccess = false;
 
-        if (startNode.walkable && targetNode.walkable)
+        if (targetNode.walkable)
         { 
             Heap<Node> openSet = new Heap<Node>(grid.MaxSize);
             HashSet<Node> closedSet = new HashSet<Node>();
@@ -83,29 +83,27 @@ public class Pathfinding : MonoBehaviour {
             path.Add(currentNode);
             currentNode = currentNode.parent;
         }
+
         Vector3[] waypoints = SimplifyPath(path);
+
         Array.Reverse(waypoints);
         return waypoints;
     }
 
-    Vector3[] SimplifyPath(List<Node> path)
+    //THIS FUNCTION SCREWS UP 2D AI - Only used to convert the list into array
+    Vector3[] SimplifyPath(List<Node> path) 
     {
         List<Vector3> waypoints = new List<Vector3>();
-        //Vector2 directionOld = Vector2.zero;
-        waypoints.Add(path[0].worldPos);
-
-        for(int i = 1; i < path.Count; i++)
+        //waypoints.Add(path[0].worldPos);
+        if(path.Count>0)
         {
-            waypoints.Add(path[i].worldPos);
-
-            /*Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
-            if(directionNew != directionOld)
+            for (int i = 0; i < path.Count; i++)
             {
                 waypoints.Add(path[i].worldPos);
             }
-            directionOld = directionNew;*/
         }
         return waypoints.ToArray();
+
     }
 
     int GetDistance(Node nodeA, Node nodeB)

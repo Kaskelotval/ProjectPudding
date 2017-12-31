@@ -50,15 +50,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-
-    }
-    private void FixedUpdate()
-    {
-        if(isDodging)
+        if (isDodging)
         {
 
             float distSqr = (dodgeTarget - transform.position).sqrMagnitude;
-            if(distSqr <0.1f)
+            if (distSqr < 0.1f)
             {
                 Debug.Log("Finished dodging");
                 onDodgeFinished();
@@ -75,6 +71,10 @@ public class Player : MonoBehaviour
         {
             RBody2D.AddForce(velocity);
         }
+    }
+    private void FixedUpdate()
+    {
+        
     }
 
     public virtual void ClearVelocity()

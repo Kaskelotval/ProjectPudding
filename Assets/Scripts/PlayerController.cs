@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
     {
         if (attackTrigger.enabled)
         {
-            Debug.Log("this is attack trigger");
+            Debug.Log("Attacked a " + other );
             other.GetComponent<Enemy>().takeDamage(GameManager.instance.playerDamage);
             attackTrigger.enabled = false;
         }
